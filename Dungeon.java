@@ -1,14 +1,10 @@
-import java.util.ArrayList;
-import java.util.Scanner;
-import java.util.jar.JarEntry;
-import java.util.jar.JarInputStream;
+import java.util.*;
+
 import java.lang.reflect.*;
+
 import java.net.URL;
 import java.net.URLClassLoader;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.lang.Exception;
 
 public class Dungeon
@@ -148,6 +144,8 @@ public class Dungeon
         fancyOutput("\nYou pull open the final door and enter into strong daylight...");
         fancyOutput("You, " + player.getName() + ", have survived...\n", 100);
         outputStats();
+
+        waitForEnter();
     }
 
     private void outputStats()
@@ -201,42 +199,68 @@ public class Dungeon
 
     private void createRooms()
     {
-        try 
+        final String path = ".";
+        final File jarFile = new File(getClass().getProtectionDomain().getCodeSource().getLocation().getPath());
+
+        boolean inJar = jarFile.isFile();
+        /*
+            To create executable jar:
+            1) Run: javac *.java
+            2) Run: jar -cvfe TCP.jar Dungeon *.class
+            3) Fill in array below
+            4) echo java -jar TCP.jar > RUN_TCP_DUNGEON.bat
+        */
+
+        if(inJar)
         {
-            File root = new File(".");
-            for( File f : root.listFiles()){
-                if(f.getName().contains(".class"))
-                {
-                    roomClasses.add(f.getCanonicalPath());
+            roomClasses.addAll(Arrays.asList(
+                "GuessingGame",
+                "SadRobot",
+                "FastMath"));
+        }
+        else
+        {
+            try 
+            {
+                File root = new File(".");
+                for( File f : root.listFiles()){
+                    if(f.getName().contains(".class"))
+                    {
+                        roomClasses.add(f.getCanonicalPath());
+                    }
                 }
+            } catch (Exception e) { 
+                e.printStackTrace();
+                return;
             }
-        } catch (Exception e) { 
-            e.printStackTrace();
-            return;
+
         }
 
         for(String pathToClassFile : roomClasses) 
         {
             try 
             {
-                ProcessBuilder pb = new ProcessBuilder("javap",pathToClassFile);
-                Process p = pb.start();
-                String classname = null;
-                try(BufferedReader br = new BufferedReader(new InputStreamReader(p.getInputStream()))) {
-                    String line;
-                    while(null != (line = br.readLine())) {
-                        if(line.startsWith("public class") && line.contains("extends Room")) {
-                            classname = line.split(" ")[2];
-                            break;
+                String classname = inJar ? pathToClassFile : null;
+                if(!inJar)
+                {
+                    ProcessBuilder pb = new ProcessBuilder("javap",pathToClassFile);
+                    Process p = pb.start();
+                    try(BufferedReader br = new BufferedReader(new InputStreamReader(p.getInputStream()))) {
+                        String line;
+                        while(null != (line = br.readLine())) {
+                            if(line.startsWith("public class") && line.contains("extends Room")) {
+                                classname = line.split(" ")[2];
+                                break;
+                            }
                         }
                     }
                 }
 
                 if(classname != null)
                 {
-                    String pathToPackageBase = pathToClassFile.substring(0, pathToClassFile.length() - (classname + ".class").length());
+                    //String pathToPackageBase = pathToClassFile.substring(0, pathToClassFile.length() - (classname + ".class").length());
                     URLClassLoader loader = new URLClassLoader(
-                            new URL[]{new File(pathToPackageBase).toURI().toURL()});
+                            new URL[]{new File(".").toURI().toURL()});
                     
                     Class clss = loader.loadClass(classname);
                     
