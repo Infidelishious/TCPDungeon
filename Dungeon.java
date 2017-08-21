@@ -14,6 +14,7 @@ public class Dungeon
     private ArrayList<Room> vistedRooms;
 
     private Scanner scanner;
+    private InputStream inSteam;
     private Player player;
 
     private long startTime;
@@ -24,7 +25,8 @@ public class Dungeon
         rooms = new ArrayList<Room>();
         vistedRooms = new ArrayList<Room>();
 
-        scanner = new Scanner(System.in);
+        inSteam = System.in;
+        scanner = new Scanner(inSteam);
     }
 
     public int getIntSafe()
@@ -71,7 +73,8 @@ public class Dungeon
         System.out.print("\nPress 'Enter' to continue...");
 
         try {
-            scanner.nextLine();
+            if(isInput())
+                scanner.nextLine();
             scanner.nextLine();
          } catch (Exception e) {}
     }
@@ -102,6 +105,12 @@ public class Dungeon
     {
         for(int i = 0; i < input.length(); i++)
         {
+            if(isInput())
+            {
+                scanner.nextLine();
+                letterDelay = 0;
+            }
+
             System.out.print(input.charAt(i));
             pause(letterDelay);
         }
@@ -289,6 +298,15 @@ public class Dungeon
         vistedRooms.add(room);
 
         return room;
+    }
+
+    private boolean isInput()
+    {
+        try {
+            return inSteam.available() > 0;
+        } catch (Exception e) {
+            return false;
+        }
     }
 
     public static void main(String[] args) throws Exception
