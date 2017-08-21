@@ -35,6 +35,7 @@ public class Dungeon
         while(true)
         {
             try {
+                clearBuffer();
                 ret = scanner.nextInt();
                 break;
             } catch (Exception e) {
@@ -43,6 +44,12 @@ public class Dungeon
             }
         }
         return ret;
+    }
+
+    public String getString()
+    {
+        clearBuffer();
+        return scanner.nextLine();
     }
 
     public int getOptionIntSafe(String... options)
@@ -55,6 +62,7 @@ public class Dungeon
         while(true)
         {
             try {
+                clearBuffer();
                 ret = scanner.nextInt();
                 if(ret >= 1 && ret <= options.length)
                     break;
@@ -73,8 +81,7 @@ public class Dungeon
         System.out.print("\nPress 'Enter' to continue...");
 
         try {
-            if(isInput())
-                scanner.nextLine();
+            clearBuffer();
             scanner.nextLine();
          } catch (Exception e) {}
     }
@@ -199,7 +206,7 @@ public class Dungeon
     {
         fancyOutput("Please enter your characters name:");
 
-        String name = scanner.nextLine();
+        String name = getString();
         fancyOutput("\nHello " + name + "!");
         pause(1000);
 
@@ -307,6 +314,12 @@ public class Dungeon
         } catch (Exception e) {
             return false;
         }
+    }
+
+    private void clearBuffer()
+    {
+        if(isInput())
+            scanner.nextLine();
     }
 
     public static void main(String[] args) throws Exception
