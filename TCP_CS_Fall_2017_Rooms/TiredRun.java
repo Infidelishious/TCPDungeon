@@ -1,5 +1,3 @@
-import java.util.Scanner;
-
 public class TiredRun extends Room
 {  
     public String getAuthor()
@@ -19,8 +17,7 @@ public class TiredRun extends Room
         dungeon.fancyOutput("Watch your step.");
         dungeon.fancyOutput("You find yourself in a corridor. On the table in front of you there are three objects. A cup of brown sludge-like liquid sits all the way to the left. In the center there is a syringe of some sort of neon liquid, and on the right edge of the table there is a small box, the size of maybe a ring box.");
         dungeon.fancyOutput("1)Drink the sludge\n2)Use the syringe \n3)Open the box");
-        Scanner lil = new Scanner(System.in);
-        int choice = lil.nextInt();
+        int choice =  dungeon.getIntSafe();
         if(choice == 1)
         {
             energy = 15;
@@ -32,7 +29,7 @@ public class TiredRun extends Room
             {   
                 dungeon.fancyOutput("There appear to be 3 pathways. Though one seems more difficult than the others.");
                 dungeon.fancyOutput("Enter path:");
-                int path = lil.nextInt();
+                int path =  dungeon.getIntSafe();
                 if(path == 1)
                 {
                     energy = energy - 3;
@@ -80,7 +77,7 @@ public class TiredRun extends Room
             {   
                 dungeon.fancyOutput("There appear to be 3 pathways. Though one seems more difficult than the others.");
                 dungeon.fancyOutput("Enter path:");
-                int path = lil.nextInt();
+                int path =  dungeon.getIntSafe();
                 if(path == 1)
                 {
                     energy = energy - 3;

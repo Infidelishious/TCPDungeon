@@ -64,9 +64,9 @@ public class LeetGamerHangman extends Room
         if (! printWord(word, enteredLetters))
             return 3;
         System.out.print(" > ");
-        Scanner input = new Scanner(System.in);
+
         int emptyPosition = findEmptyPosition(enteredLetters);
-        char userInput = input.nextLine().charAt(0);
+        char userInput = dungeon.getString().charAt(0);
         if (inEnteredLetters(userInput, enteredLetters)) {
             dungeon.fancyOutput(userInput + " is already in the word");
             return 2;

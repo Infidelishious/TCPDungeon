@@ -4,8 +4,6 @@
  */
 
 import java.util.ArrayList;
-import javax.net.ssl.ExtendedSSLSession;
-import java.lang.reflect.*;
 
 public class Torches extends Room
 {

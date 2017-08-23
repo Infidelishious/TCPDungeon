@@ -3,9 +3,6 @@
 * Class: TrainingSim
 */
 
-
-import javax.net.ssl.ExtendedSSLSession;
-
 public class TrainingSim extends Room
 {
     public String getAuthor()

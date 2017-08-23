@@ -1,7 +1,3 @@
-import java.util.Scanner;
-import javax.net.ssl.ExtendedSSLSession;
-import java.lang.reflect.*;
-
 //Author: Thomas Flannigan
 //Class: PeeWee's Big Adventure
 //This is a choose your own adventure game that I made
@@ -26,8 +22,6 @@ public class PeeWeesBigAdventure extends Room
     {
         this.player = player;
         
-        Scanner scan = new Scanner(System.in);
-
         int decision1;
         
         dungeon.fancyOutput("You awaken in a dark dungeon cell of some sort, unable to remember anything... ");

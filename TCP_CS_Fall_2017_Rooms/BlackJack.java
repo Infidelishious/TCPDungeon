@@ -1,5 +1,4 @@
 import java.util.Random;
-import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.*;
@@ -82,7 +81,7 @@ public class BlackJack extends Room
 
         dungeon.fancyOutput("As you enter the room, you see an old man sat at a table with a deck of cards. He looks at you with solemn eyes and says 'Play a round with me, won't you?' Hesitantly, you approach."); 
 
-        dungeon.fancyOutput("You are dealt the " + deckofcards[cardnumber] + "and the " + deckofcards[cardnumber + 1 ]);
+        dungeon.fancyOutput("You are dealt the " + deckofcards[cardnumber] + " and the " + deckofcards[cardnumber + 1 ]);
         if(roundOfPlay(numberofcards, numberoftrys, cardnumber) == true)
         {
             dungeon.fancyOutput("The old man rises. \'You have beaten me. You may be on your way.\'");
@@ -181,9 +180,9 @@ public class BlackJack extends Room
         else
         {
             int blackjack = sumof(deckofcards, numberofcards, cardnumber);
-            if(firstcomphit(cardnumber, blackjack)== true)
+            if(firstcomphit(cardnumber, blackjack) == true)
             {
-                dungeon.fancyOutput("He busts.");
+                dungeon.fancyOutput("He loses.");
                 return true;   
             }
             else
@@ -211,7 +210,7 @@ public class BlackJack extends Room
         cardnumberf = cardnumberf +2;
         cardnumber = cardnumber + 2;
         int numberofcardsf = 2;
-        dungeon.fancyOutput("The old man is dealt the " + deckofcards[cardnumberf -2] + "and the " + deckofcards[cardnumberf-1]);
+        dungeon.fancyOutput("The old man is dealt the " + deckofcards[cardnumberf -2] + " and the " + deckofcards[cardnumberf-1]);
         int sum2 = sumof(deckofcards, numberofcardsf, cardnumberf);
         if( sum2 >= 17)
             {
@@ -241,7 +240,7 @@ public class BlackJack extends Room
         cardnumberf = cardnumberf + 1;
         cardnumber++;
         numberofcards = numberofcardsf;
-        numberofcards ++;
+        numberofcards++;
         numberofcardsf++;
         dungeon.fancyOutput("He hits.");
         dungeon.fancyOutput("The old man is dealt the " + deckofcards[cardnumberf]);
@@ -292,31 +291,31 @@ public class BlackJack extends Room
 
     public int valueof(String str)  
     {
-        if(str.contains("two"))
+        if(str.contains("Two"))
             return 2;
-        if(str.contains("three"))
+        if(str.contains("Three"))
             return 3;
-        if(str.contains("four"))
+        if(str.contains("Four"))
             return 4;
-        if(str.contains("five"))
+        if(str.contains("Five"))
             return 5;
-        if(str.contains("six"))
+        if(str.contains("Six"))
             return 6;
-        if(str.contains("seven"))
+        if(str.contains("Seven"))
             return 7;
-        if(str.contains("eight"))
+        if(str.contains("Eight"))
             return 8;
-        if(str.contains("nine"))
+        if(str.contains("Nine"))
             return 9;
-        if(str.contains("ten"))
+        if(str.contains("Ten"))
             return 10;
-        if(str.contains("jack"))
+        if(str.contains("Jack"))
             return 10;
-        if(str.contains("queen"))
+        if(str.contains("Queen"))
             return 10;
-        if(str.contains("king"))
+        if(str.contains("King"))
             return 10;
-        if(str.contains("ace"))
+        if(str.contains("Ace"))
             return 11;
 
         else   
@@ -329,7 +328,7 @@ public class BlackJack extends Room
         int sum = 0;
         for(int j = cardnumberf - number; j < cardnumberf; j++)
         {
-            sum+=valueof(cards[j]);
+            sum = sum + valueof(cards[j]);
         }
         return sum;
     }

@@ -8,8 +8,6 @@
 */
    
 import java.util.*;
-import javax.net.ssl.ExtendedSSLSession;
-import java.lang.reflect.*;
 
 public class SecretOfTheProgrammer extends Room
 {

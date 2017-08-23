@@ -1,4 +1,3 @@
-import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.concurrent.ThreadLocalRandom;
 public class RiddleRoom extends Room
@@ -19,7 +18,6 @@ public class RiddleRoom extends Room
 
     public boolean playerEnters(Player player) throws Exception
     {
-        Scanner scan = new Scanner(System.in);
         int min = 0;
         int max = 9;
 
@@ -85,7 +83,7 @@ public class RiddleRoom extends Room
         {
         dungeon.fancyOutput(
             "'What asks but never answers?'");
-            String r1 = scan.nextLine();
+            String r1 = dungeon.getString();
             r1 = r1.toUpperCase();
             if(r1.contains("OWL"))
             {
@@ -112,7 +110,7 @@ public class RiddleRoom extends Room
                 "'Who buys it, has no use for it.'\n" +
                 "'Who uses it can neither see nor feel it.'\n" +
                 "'What is it?'");
-            String r2 = scan.nextLine();
+            String r2 = dungeon.getString();
             r2 = r2.toUpperCase();
             if(r2.contains("COFFIN"))
             {
@@ -140,7 +138,7 @@ public class RiddleRoom extends Room
         {
             dungeon.fancyOutput(
                 "'What kind of room has no doors or windows?'");
-            String r3 = scan.nextLine();
+            String r3 = dungeon.getString();
             r3 = r3.toUpperCase();
             if(r3.contains("MUSHROOM"))
             {
@@ -164,7 +162,7 @@ public class RiddleRoom extends Room
             dungeon.fancyOutput(
                 "'Feed me and I live, yet give me a drink and I die.'\n" +
                 "'What am I?'\n");
-            String r4 = scan.nextLine();
+            String r4 = dungeon.getString();
             r4 = r4.toUpperCase();
             if(r4.contains("FIRE"))
             {
@@ -193,7 +191,7 @@ public class RiddleRoom extends Room
                 "Toothless bites,\n" +
                 "Mouthless mutters.'\n");
             dungeon.fancyOutput("'What is it?'");
-            String r5 = scan.nextLine();
+            String r5 = dungeon.getString();
             r5 = r5.toUpperCase();
             if(r5.contains("WIND"))
             {
@@ -218,7 +216,7 @@ public class RiddleRoom extends Room
                 "'A box without hinges, key or lid,\n" +
                 "Yet golden treasure inside is hid.\n" +
                 "What is it?'");
-                String r6 = scan.nextLine();
+                String r6 = dungeon.getString();
                 r6 = r6.toUpperCase();
                 if(r6.contains("EGG"))
                 {
@@ -244,7 +242,7 @@ public class RiddleRoom extends Room
                 "Is taller than trees.\n" +
                 "Up, up, up it goes,\n" +
                 "And yet never grows?");
-                String r7 = scan.nextLine();
+                String r7 = dungeon.getString();
                 r7 = r7.toUpperCase();
                 if(r7.contains("MOUNTAIN"))
                 {
@@ -267,7 +265,7 @@ public class RiddleRoom extends Room
         {
             dungeon.fancyOutput(
                 "'What can you hear but not touch or see?'");
-                String r8 = scan.nextLine();
+                String r8 = dungeon.getString();
                 r8 = r8.toUpperCase();
                 if(r8.contains("VOICE"))
                 {
@@ -293,7 +291,7 @@ public class RiddleRoom extends Room
                 "I have space but no room.\n" +
                 "You can enter but not go outside.\n" +
                 "What am I?'");
-                String r9 = scan.nextLine();
+                String r9 = dungeon.getString();
                 
                 r9 = r9.toUpperCase();
                 if(r9.contains("KEYBOARD"))
@@ -317,7 +315,7 @@ public class RiddleRoom extends Room
         {
             dungeon.fancyOutput(
                 "'How many seconds are there in a year?'\n");
-                String r10 = scan.nextLine();
+                String r10 = dungeon.getString();
                 if(r10.contains("12"))
                 {
                     dungeon.fancyOutput("'Correct...'\n" +

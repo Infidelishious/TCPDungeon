@@ -49,7 +49,15 @@ public class Dungeon
     public String getString()
     {
         clearBuffer();
-        return scanner.nextLine();
+
+        String str;
+
+        do
+        {
+            str = scanner.nextLine();
+        } while(str == null || str.length() == 0);
+
+        return str;
     }
 
     public int getOptionIntSafe(String... options)
@@ -230,6 +238,26 @@ public class Dungeon
         if(inJar)
         {
             roomClasses.addAll(Arrays.asList(
+                "AdventureDungeon",
+                "Battle",
+                "BlackJack",
+                "BoxDodge",
+                "CrustyFisherman",
+                "Dash",
+                "DriftChallenge",
+                "EscapeRoomFromFrieza",
+                "GalacticGuess",
+                "Genie",
+                "Geniusordoofus",
+                "LeetGamerHangman",
+                "PeeWeesBigAdventure",
+                "PuzzleRoom",
+                "RiddleRoom",
+                "SeaBear",
+                "SecretOfTheProgrammer",
+                "TiredRun",
+                "Torches",
+                "TrainingSim",                
                 "GuessingGame",
                 "SadRobot",
                 "FastMath"));

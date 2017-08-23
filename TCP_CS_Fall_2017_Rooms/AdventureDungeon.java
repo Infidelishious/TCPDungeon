@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import javax.net.ssl.ExtendedSSLSession;
 import java.lang.reflect.*;
-import java.util.Scanner;
+
 public class AdventureDungeon extends Room
 {
     private Player player;
@@ -18,8 +18,8 @@ public class AdventureDungeon extends Room
     {
         dungeon.fancyOutput("Hello " + player.getName() + "! \n Welcome to the Labyrinth");
         dungeon.fancyOutput("Which door do you go through: \n 0) Blue Door \n 1) Red Door");
-        Scanner lucy = new Scanner(System.in);
-        int choice = lucy.nextInt();
+
+        int choice = dungeon.getIntSafe();
         if(choice == 0)
         {
             dungeon.fancyOutput("You went through the blue door.");
@@ -30,7 +30,7 @@ public class AdventureDungeon extends Room
         {
             dungeon.fancyOutput("You go through the red door.");
             dungeon.fancyOutput("Now you: \n 2) Go through the Iron Gates\n 3) Go down a set of marble stairs");
-            choice = lucy.nextInt();
+            choice =  dungeon.getIntSafe();
         }
         if(choice==2)
         {
@@ -38,7 +38,7 @@ public class AdventureDungeon extends Room
             dungeon.fancyOutput("You have wandered in to Hades");
             dungeon.fancyOutput("As you entered you saved Persephone from the furies");
             dungeon.fancyOutput("You are granted escape from The Labyrinth.");
-            choice=lucy.nextInt();
+            choice= dungeon.getIntSafe();
             return true;
         }
         else if (choice== 3)
@@ -47,13 +47,13 @@ public class AdventureDungeon extends Room
             dungeon.fancyOutput("At the top of the stairs you found 2 vials. \n You pick them up.");
             dungeon.fancyOutput("Now you: \n4) Go left through a grove of Fruit Trees");
             dungeon.fancyOutput("5) Go right through a dark tunnel ");
-             choice = lucy.nextInt();
+             choice = dungeon.getIntSafe();
         }
         if(choice==4)
         {
             dungeon.fancyOutput("You went through the Grove of Fruit Trees");
             dungeon.fancyOutput("You have escaped The Labyrinth you live but lose your memory.");
-            choice = lucy.nextInt();
+            choice = dungeon.getIntSafe();
             return true;
             
         }
@@ -66,7 +66,7 @@ public class AdventureDungeon extends Room
             dungeon.fancyOutput("but the blood from the right will heal any injury.");
             dungeon.fancyOutput("The bottles look and feel identical except they are marked with a 1 or a 2");
             dungeon.fancyOutput("if you choose bottle one type 6 if you choose bottle two type 7");
-            choice = lucy.nextInt();
+            choice = dungeon.getIntSafe();
         }
         if(choice==6)
         {
@@ -75,13 +75,13 @@ public class AdventureDungeon extends Room
             dungeon.fancyOutput("You look around you see 2 caves cave 1 has still almost stagnant air while");
             dungeon.fancyOutput("cave 2 outputs a cool refreshing breeze");
             dungeon.fancyOutput("If you pick cave one type 8 \n If you pick cave two type 9");
-            choice = lucy.nextInt();
+            choice = dungeon.getIntSafe();
         }
         else if(choice==7)
         {
             dungeon.fancyOutput("You chose bottle two.");
             dungeon.fancyOutput("It is from the left side of the gorgon \n You die a painful death."); 
-            choice = lucy.nextInt();
+            choice = dungeon.getIntSafe();
             return false;
         }
          if(choice == 8)
@@ -96,7 +96,7 @@ public class AdventureDungeon extends Room
             dungeon.fancyOutput("or 2) wait patiently and hope to bargain with the dragon for help escaping ");
             dungeon.fancyOutput("If you choose to steal the artifacts type 10");
             dungeon.fancyOutput("If you choose to wait and hope type 11");
-           choice = lucy.nextInt();           
+           choice = dungeon.getIntSafe();         
 
         }
         else if(choice == 9)
@@ -105,7 +105,7 @@ public class AdventureDungeon extends Room
             dungeon.fancyOutput("It leads into a garden full of sweet-smelling red flowers.");
             dungeon.fancyOutput("As you look around you start to feel drowzy...");
             dungeon.fancyOutput("You have wandered into a field of sleep poppies and will remain there for eternity.");
-            choice = lucy.nextInt();
+            choice = dungeon.getIntSafe();
             return false;
         }
         if(choice== 10)
@@ -113,7 +113,7 @@ public class AdventureDungeon extends Room
             dungeon.fancyOutput("You chose to steal the objects... obviously you died.");
             dungeon.fancyOutput("Don't you know anything about dragons they are very possive of their hoards");
             dungeon.fancyOutput("stealing from them is nearly always a death sentence.");
-            choice= lucy.nextInt();
+            choice=  dungeon.getIntSafe();
             return false;
             
         }
@@ -126,7 +126,7 @@ public class AdventureDungeon extends Room
             dungeon.fancyOutput("\"If you want my help you are going to have to aid me first.\"");
             dungeon.fancyOutput("Do you agree to do an unspecified task for Azidil or do you leave and find your own way?");
             dungeon.fancyOutput("If you accept Azidil's terms type 12 if you don't type 13");
-            choice= lucy.nextInt();
+            choice = dungeon.getIntSafe();
         }
         if(choice== 12)
         {

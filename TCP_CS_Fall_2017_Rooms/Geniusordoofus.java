@@ -1,4 +1,3 @@
-import java.util.Scanner;
 import java.lang.Exception; 
 
 public class Geniusordoofus extends Room
@@ -16,15 +15,13 @@ public class Geniusordoofus extends Room
 
     public boolean playerEnters(Player player) throws Exception
     {
-        Scanner input = new Scanner(System.in);
-
         int totScore = 10;
 
         dungeon.fancyOutput("Welcome to the next room of the TCP Dungeon. Prepare your tiny brain for a game of...\n\n*****PROGRAMMER: GENIUS OR DOOFUS*****\n");
 
         dungeon.fancyOutput("In this game you will have to answer coding questions about java (probably).You will be asked a total of ten questions.\nIf you answer wrong, you will lose a point. If you score less than a 7/10, may God be with you.\nSelect your option:\n1) Continue to game\n2) Skip this room );");
 
-            int i = input.nextInt();
+            int i =  dungeon.getIntSafe();
 
             if(i == 1)
             {
@@ -55,7 +52,7 @@ public class Geniusordoofus extends Room
 
         dungeon.fancyOutput("Question one: What is the correct way to implement a scanner into your code?\n1) import java.util.Scanner\n2) import java.util.scanner\n3) Scanner scan = new Scanner()\n4) Scanner scan = new Scanner(System.in)\n");
 
-        i = input.nextInt();
+        i =  dungeon.getIntSafe();
 
             if(i == 1)
             {
@@ -71,7 +68,7 @@ public class Geniusordoofus extends Room
         
         dungeon.fancyOutput("Question two: Can you create a function within a function?\n1) Depends on whether it is inside a loop\n2) No\n3) Yes\n4) Only if Ian says it's ok");
 
-        i = input.nextInt();
+        i =  dungeon.getIntSafe();
 
             if(i == 2)
             {
@@ -87,7 +84,7 @@ public class Geniusordoofus extends Room
 
         dungeon.fancyOutput("Question three: How do you call a function within another class?\n1) function.Class\n2) Class\n3) function\n4) Class.function");
 
-        i = input.nextInt();
+        i =  dungeon.getIntSafe();
 
             if(i == 4)
             {
@@ -101,9 +98,9 @@ public class Geniusordoofus extends Room
             }
 
 
-        dungeon.fancyOutput("Question four: What is one reason a try catch block is needed for a sleep thread?\n1) There is an error if you try to start a timer while another one is in progress\n2) Jesus-take-the-wheel kinds of situations\n3) sleep threads are sometimes unreliable and thus give errors\n4) A sleep thread can run too many times if it's not stopped (stack overflow)");
+        dungeon.fancyOutput("Question four: What is one reason a try catch block is needed for a sleep thread?\n1) There is an error if another thread trys to sleep a sleeping thread\n2) Jesus-take-the-wheel kinds of situations\n3) sleep threads are sometimes unreliable and thus give errors\n4) A sleep thread can run too many times if it's not stopped (stack overflow)");
 
-        i = input.nextInt();
+        i =  dungeon.getIntSafe();
 
             if(i == 1)
             {
@@ -119,7 +116,7 @@ public class Geniusordoofus extends Room
 
         dungeon.fancyOutput("Question five: What does Math.random do?\n1) Gives you a random number from 1-100\n2) Gives you a random anser from -1 to 1\n3) Gives you an answer from 0-1\n4) Assigns a random number to a variable");
 
-        i = input.nextInt();
+        i =  dungeon.getIntSafe();
 
             if(i == 3)
             {
@@ -134,7 +131,7 @@ public class Geniusordoofus extends Room
 
         dungeon.fancyOutput("Question 6: How much wood could a wood chuck chuck if a wood chuck could chuck wood?\n1) As much as it damn well pleases\n2) 42 square books of swim\n3) Rock\n4) Logs, hogs, and cogs");
 
-        i = input.nextInt();
+        i = dungeon.getIntSafe();
 
             if(i < 5)
             {
@@ -152,7 +149,7 @@ public class Geniusordoofus extends Room
 
         dungeon.fancyOutput("Question seven: What is the difference between System.out.print() and System.out.println()?\n1) Nothing, they perform the same task\n2) System.out.print() does not exist\n3) System.out.println() skips to the next line after printing while System.out.print() does not\n4) They both do the same thing, just with different syntax");
 
-        i = input.nextInt();
+        i =  dungeon.getIntSafe();
 
             if(i == 3)
             {
@@ -166,9 +163,9 @@ public class Geniusordoofus extends Room
             }
 
 
-        dungeon.fancyOutput("Question eight: What does UBI stand for?\n1) Universal British Inerneting\n2) Universal Banking Investment\n3) Universal Banking International\n4) Universal Base Income");
+        dungeon.fancyOutput("Question eight: What does UBI stand for?\n1) Universal British Inerneting\n2) Universal Banking Investment\n3) Universal Banking International\n4) Universal Basic Income");
 
-        i = input.nextInt();
+        i =  dungeon.getIntSafe();
 
             if(i == 4)
             {
@@ -184,7 +181,7 @@ public class Geniusordoofus extends Room
 
         dungeon.fancyOutput("Question nine: What is one instance that Merge Sort NOT the fastest?\n1) When there is more than 18 items\n2) When there is less than 15 items\n3) When there is an odd amount of items\n4) When Derek says so");
 
-        i = input.nextInt();
+        i =  dungeon.getIntSafe();
 
             if(i == 2)
             {
@@ -200,7 +197,7 @@ public class Geniusordoofus extends Room
 
         dungeon.fancyOutput("Question ten: What shape is used to create meshes in animations and video games?\n1) Tryangle\n2) Docecahedron\n3) Triangle\n4) It doesn't matter, they overlap anyways");
 
-        i = input.nextInt();
+        i =  dungeon.getIntSafe();
 
             if(i == 3)
             {
@@ -216,7 +213,7 @@ public class Geniusordoofus extends Room
             if(totScore < 7)
             {
             dungeon.fancyOutput("You have a score of less than 7/10. A 5 sided dice will be rolled to decide your final fate. Choose a number 1-5.");
-            i = input.nextInt();
+            i =  dungeon.getIntSafe();
             double randDie = (Math.random() * 6);
             if(randDie == i)
             {

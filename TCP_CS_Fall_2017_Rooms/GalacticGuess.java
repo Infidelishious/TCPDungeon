@@ -1,5 +1,3 @@
-import java.util.Scanner;
-import javax.net.ssl.ExtendedSSLSession;
 import java.lang.reflect.*;
 
 public class GalacticGuess extends Room
@@ -17,8 +15,6 @@ public class GalacticGuess extends Room
     
     public boolean playerEnters(Player player) throws Exception
     {
-        Scanner scanner = new Scanner(System.in);
-
         dungeon.fancyOutput("* * * * * * * * * * * * * * * * * * *");
         dungeon.fancyOutput("You don't know how, but you were teleported into outer space!");
         dungeon.fancyOutput("* * * * * * * * * * * * * * * * * * *");
@@ -39,7 +35,7 @@ public class GalacticGuess extends Room
         dungeon.fancyOutput("'What do you have on you?'");
         dungeon.fancyOutput("1. Tell the Truth");
         dungeon.fancyOutput("2. Lie");
-        int choice1 = scanner.nextInt();
+        int choice1 =  dungeon.getIntSafe();
 
         if(choice1 == 1)
         {
@@ -58,7 +54,6 @@ public class GalacticGuess extends Room
     }
     public boolean howToPass()
     {
-        Scanner scannner = new Scanner(System.in);
         System.out.println("");
         dungeon.fancyOutput("'You can only pass me if you can guess what planet I'm from!'");
         dungeon.fancyOutput("'I bet you my lucky alien toe that you can't guess it!'");
@@ -69,7 +64,7 @@ public class GalacticGuess extends Room
         String planet = planet();
         while(guesses > 0)
         {
-            String guess = scannner.nextLine();
+            String guess = dungeon.getString();
             if(guess.equals(planet))
             {
                 dungeon.fancyOutput("He lets out a sigh. You realize you got it right...");
@@ -114,8 +109,7 @@ public class GalacticGuess extends Room
                                 "He pulls out a lazer pointer taped to a nerf gun."
                                 + "'What color is that planet?!'");
 
-        Scanner scannnner = new Scanner(System.in);
-        String answer = scannnner.nextLine();
+        String answer =  dungeon.getString();
 
         dungeon.fancyOutput("'That is....that is....''");
         dungeon.waitForEnter();
@@ -126,7 +120,7 @@ public class GalacticGuess extends Room
         dungeon.fancyOutput("Do you...");
         dungeon.fancyOutput("1. Try to cheer him up");
         dungeon.fancyOutput("2. Mock him and leave");
-        int answer2 = scannnner.nextInt();
+        int answer2 =  dungeon.getIntSafe();
         if(answer2 == 1)
         {
             dungeon.fancyOutput("You bend down and pat him on the back...");

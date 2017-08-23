@@ -1,4 +1,3 @@
-import java.util.Scanner;
 import java.lang.*;
 
 
@@ -18,10 +17,7 @@ public class PuzzleRoom extends Room
     
     public boolean playerEnters(Player player) throws Exception
     {     
-        Scanner scan = new Scanner(System.in);
-        dungeon.fancyOutput("Choose your characters Name: ");
-
-        String name = scan.nextLine();
+        String name = player.getName();
 
         dungeon.fancyOutput("Hello" + name + "!\n");
         
@@ -38,7 +34,7 @@ public class PuzzleRoom extends Room
 
        dungeon.fancyOutput("1) get out of that creepy ass room");
        dungeon.fancyOutput("2) with skeptisism, you continue walking ");
-        int choice = scan.nextInt(); 
+        int choice = dungeon.getIntSafe(); 
         
         if(choice == 1)
         {
@@ -47,7 +43,7 @@ public class PuzzleRoom extends Room
 
             dungeon.fancyOutput("1)You go over and pick it up");
             dungeon.fancyOutput("2)You ignore it and proceed to the exit of the room");
-            choice = scan.nextInt();
+            choice = dungeon.getIntSafe(); 
         
         }
         else
@@ -59,7 +55,7 @@ public class PuzzleRoom extends Room
         
            dungeon.fancyOutput("1)You go over and pick it up");
            dungeon.fancyOutput("2)You ignore it and proceed to the exit of the room");
-            choice = scan.nextInt();
+            choice = dungeon.getIntSafe(); 
         }
 
 
@@ -76,7 +72,7 @@ public class PuzzleRoom extends Room
 
                  dungeon.fancyOutput("0) you click on the triangle");
                  dungeon.fancyOutput("1) you click on the square");
-                 choice = scan.nextInt();
+                 choice = dungeon.getIntSafe(); 
         }
         else if(choice == 2)
         {
@@ -89,14 +85,14 @@ public class PuzzleRoom extends Room
                 
                 dungeon.fancyOutput("0) you click on the triangle");
                 dungeon.fancyOutput("2) you click on the square");
-                choice = scan.nextInt();
+                choice = dungeon.getIntSafe(); 
            
                 dungeon.fancyOutput("decode 00011101 01010101 11110001");
 
                  dungeon.fancyOutput("1) answer = 29 53 246");
                  dungeon.fancyOutput("2) answer = 64 82 174");
                  dungeon.fancyOutput("3) answer = 30 68 123");
-                 choice =scan.nextInt();
+                 choice = dungeon.getIntSafe(); 
         }
         else if(choice == 2 || choice == 3)
         {
@@ -124,7 +120,7 @@ public class PuzzleRoom extends Room
              {
              
              dungeon.fancyOutput("GAME OVER");
-             choice = scan.nextInt();
+             choice = dungeon.getIntSafe(); 
 
             }
              else
@@ -148,7 +144,7 @@ public class PuzzleRoom extends Room
 
            dungeon.fancyOutput("0) you go through the door on the left");
            dungeon.fancyOutput("1) you go through the door on the right");
-            choice = scan.nextInt();
+            choice = dungeon.getIntSafe(); 
         
         }
         
@@ -162,12 +158,12 @@ public class PuzzleRoom extends Room
 
            dungeon.fancyOutput("0) 21");
            dungeon.fancyOutput("1) 49");
-           choice = scan.nextInt();
+           choice = dungeon.getIntSafe(); 
         }
          else if(choice == 0)
         {
            dungeon.fancyOutput("Congratulations you win!");
-            choice = scan.nextInt();
+            choice = dungeon.getIntSafe(); 
         }
         else if(choice == 1)
         {
@@ -179,7 +175,7 @@ public class PuzzleRoom extends Room
 
            dungeon.fancyOutput("0) 21");
            dungeon.fancyOutput("1) 49");
-           choice = scan.nextInt();
+           choice = dungeon.getIntSafe(); 
     
         }
         else 
@@ -191,7 +187,7 @@ public class PuzzleRoom extends Room
          if(choice == 0)
         {
            dungeon.fancyOutput("Congratulations you win!");
-            return false;
+            return true;
         }
         else if(choice == 1)
           {

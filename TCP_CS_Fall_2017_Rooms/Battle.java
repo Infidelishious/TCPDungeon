@@ -73,7 +73,7 @@ public class Battle extends Room
             }
             dungeon.fancyOutput("The " + yourBird + " fights for your freedom!\n");
             dungeon.fancyOutput("Seymore: Oh... Umm... Fine, I didn't want that one anyway...", 75);            dungeon.fancyOutput("Seymore: I choose me hawk!", 15);
-            dungeon.fancyOutput("Seymore: So what if that wasn't an option. This is my room, what are you gonna do about it/n", 30);
+            dungeon.fancyOutput("Seymore: So what if that wasn't an option. This is my room, what are you gonna do about it\n", 30);
 
             Bird enemyBird = new Bird("Hawk", 20, 7, 3);
             Bird playerBird = new Bird(yourBird, 20, 5, 5);
